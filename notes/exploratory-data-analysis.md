@@ -25,14 +25,22 @@ import seaborn as sns
 # normalizing column names
 df.columns = df.columns.str.lower().str.replace(' ', '_')
 
-#normalizing string values
+# normalizing string values
 string_columns = list(df.dtypes[df.dtypes == 'object'].index)
 for col in string_columns:
     df[col] = df[col].str.lower().str.replace(' ', '_')
 ```
 
 ## target variable analysis
+
 ```python
 sns.histplot(...)
-log_y = np.log1p(df.y)
+log_y = np.log1p(df.y.values)
+```
+
+## Checking for missing values
+
+```python
+df.isnull().sum()
+df.finllna(value)
 ```
