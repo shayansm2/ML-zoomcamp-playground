@@ -2,19 +2,13 @@ import numpy as np
 from numpy.linalg import inv
 
 
-class LinearRegression(object):
+class LinearRegressionModel(object):
     def __init__(self, number_of_features: int):
         self.w0 = 0
         self.w = np.zeros(number_of_features)
 
-    def give_prediction(self, xi):
-        return self.w0 + self.w.dot(xi)
-
-    def give_predictions(self, x):
-        w = np.array([self.w0] + self.w.tolist())  # check if you can make it better
-        ones = np.ones(len(x))
-        x = np.column_stack([ones, x])
-        return x.dot(w)
+    def predict(self, x):
+        return self.w0 + x.dot(self.w)
 
     def train(self, x, y):
         ones = np.ones(len(x))
