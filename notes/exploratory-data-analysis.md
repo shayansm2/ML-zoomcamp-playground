@@ -3,10 +3,11 @@
 in EDA you should look at:
 
 - The distribution of the target variable
-- The features in this dataset
-- The distribution of values in these features
+- The features in this dataset and their type
 - The quality of the data
 - The number of missing values
+- The distribution of values in these features
+- relation of each feature with the target variable
 
 ## imports
 
@@ -17,6 +18,21 @@ import pandas as pd
 from matplotlib import pyplot as plt
 import seaborn as sns
 %matplotlib inline
+```
+
+## check for data types
+
+```python
+df.columns
+df.info()
+df.dtypes
+df.head().T
+```
+
+## change data types
+```python
+pd.to_numeric(df.TotalCharges, errors='coerce')
+df.churn = (df.churn == 'yes').astype(int)
 ```
 
 ## normalizing column names and string values
