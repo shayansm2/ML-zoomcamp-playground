@@ -26,6 +26,16 @@ from sklearn.metrics import log_loss
 df[numerical].corrwith(y)
 ```
 
-## feature engineering
+## feature extraction
 ### converting categorical to numerical features
 1. one hot encoding
+```python
+from sklearn.feature_extraction import DictVectorizer
+
+dict_data = df[categorical + numerical].to_dict(orient='records') 
+
+dv = DictVectorizer(sparse=False)
+dv.fit(dict_data)
+
+X = dv.transform(dict_data)
+```
