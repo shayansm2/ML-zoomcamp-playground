@@ -25,6 +25,14 @@ from sklearn.metrics import log_loss
 ```python
 df[numerical].corrwith(y)
 ```
+2. AUC (correlation of numeric features with binary flags)
+```python
+from sklearn.metrics import roc_auc_score
+
+auc = roc_auc_score(y, x)
+if auc < 0.5:
+    auc = roc_auc_score(y, -x)
+```
 
 ## feature extraction
 ### converting categorical to numerical features

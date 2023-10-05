@@ -27,6 +27,7 @@ df.columns
 df.info()
 df.dtypes
 df.head().T
+df.describe()
 ```
 
 ## change data types
